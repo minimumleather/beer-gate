@@ -1,18 +1,18 @@
-# Beer Gate
+# Beer Password
 
 Lock any webpage until the visitor skulls a beer live on their webcam.
 
-**Try it and get the code:** https://minimumleather.github.io/beer-gate/
+**Try it and get the code:** https://minimumleather.github.io/beer-password/
 
 ## Add it to your site
 
 Put this in the `<head>` of any page you want locked:
 
 ```html
-<script src="https://minimumleather.github.io/beer-gate/beer-gate.js"></script>
+<script src="https://minimumleather.github.io/beer-password/beer-password.js"></script>
 ```
 
-Step-by-step instructions for Wix, Squarespace, WordPress, Shopify, Webflow and AI-built sites are on the [code page](https://minimumleather.github.io/beer-gate/code.html).
+Step-by-step instructions for Wix, Squarespace, WordPress, Shopify, Webflow and AI-built sites are on the [code page](https://minimumleather.github.io/beer-password/code.html).
 
 ### Settings
 
@@ -20,13 +20,13 @@ Add any of these to the script tag:
 
 | Attribute | Default | What it does |
 |---|---|---|
-| `data-title` | `Skull a beer to enter` | Heading on the gate |
+| `data-title` | `Skull a beer to enter` | Heading on the password screen |
 | `data-max-seconds` | `25` | Time to finish; the chant stretches to fit |
 | `data-remember` | `true` | Stay unlocked until the browser is closed |
-| `data-auto` | `true` | Set to `false` to open it yourself with `BeerGate.open()` |
-| `data-link-text`, `data-link-href` | none | A small link in the bottom right corner of the gate |
+| `data-auto` | `true` | Set to `false` to open it yourself with `BeerPassword.open()` |
+| `data-link-text`, `data-link-href` | none | A small link in the bottom right corner of the password screen |
 
-When someone passes, a `beergate:unlock` event fires on `document` with the skull time in `event.detail.seconds`.
+When someone passes, a `beerpassword:unlock` event fires on `document` with the skull time in `event.detail.seconds`.
 
 ## How it works
 

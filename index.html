@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Beer Gate</title>
+  <title>Beer Password</title>
   <meta name="description" content="Lock any webpage until the visitor skulls a beer live on their webcam.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍺</text></svg>">
-  <script src="beer-gate.js" data-remember="false" data-link-text="Use this code" data-link-href="code.html"></script>
+  <script src="beer-password.js" data-remember="false" data-link-text="Use this code" data-link-href="code.html"></script>
   <style>
     body { font-family: system-ui, sans-serif; max-width: 640px; margin: 60px auto; padding: 0 16px; }
     footer { position: fixed; right: 16px; bottom: 12px; font-size: 13px; }
@@ -14,11 +14,11 @@
 </head>
 <body>
   <h1>You're in.</h1>
-  <p>This is the secret content behind the beer gate.</p>
+  <p>This is the secret content behind the beer password.</p>
   <p id="time"></p>
   <footer><a href="code.html">Use this code</a></footer>
   <script>
-    document.addEventListener("beergate:unlock", (e) => {
+    document.addEventListener("beerpassword:unlock", (e) => {
       document.getElementById("time").textContent = `Your skull time: ${e.detail.seconds.toFixed(1)}s`;
     });
   </script>

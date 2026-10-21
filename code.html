@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Beer Gate: get the code</title>
-  <meta name="description" content="Add Beer Gate to your website: one line of code, with steps for Wix, Squarespace, WordPress, Shopify, Webflow and AI-built sites.">
+  <title>Beer Password: get the code</title>
+  <meta name="description" content="Add Beer Password to your website: one line of code, with steps for Wix, Squarespace, WordPress, Shopify, Webflow and AI-built sites.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍺</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,11 +50,11 @@
 </head>
 <body>
   <main class="wrap narrow">
-    <a class="back" href="./">← Back to Beer Gate</a>
+    <a class="back" href="./">← Back to Beer Password</a>
 
     <header>
       <p class="eyebrow">Get the code</p>
-      <h1 style="font-size: clamp(38px, 7vw, 60px)">Add Beer Gate to your site</h1>
+      <h1 style="font-size: clamp(38px, 7vw, 60px)">Add Beer Password to your site</h1>
       <p class="lede">It's one line of code. Put it on any page you want locked, and visitors have to skull a beer to get in.</p>
     </header>
 
@@ -63,7 +63,7 @@
       <p>Change these if you like. The code below updates as you type.</p>
       <div class="card options">
         <div>
-          <label for="title">Heading on the gate</label>
+          <label for="title">Heading on the password screen</label>
           <input type="text" id="title" value="Skull a beer to enter" maxlength="80">
         </div>
         <div>
@@ -79,7 +79,7 @@
 
     <section>
       <h2>2. Copy your code</h2>
-      <p>This loads Beer Gate from this site, so you get fixes and improvements automatically.</p>
+      <p>This loads Beer Password from this site, so you get fixes and improvements automatically.</p>
       <div class="snippet">
         <pre class="code" id="oneLine"></pre>
         <button class="btn small copy" data-copy="oneLine">Copy</button>
@@ -165,24 +165,24 @@
         <summary>Coded it yourself</summary>
         <div class="body">
           <p>Paste the code inside the <code>&lt;head&gt;</code> of each page you want locked, then upload as usual. Your site needs to be on <code>https://</code>, or browsers won't allow the camera.</p>
-          <p>When someone passes, Beer Gate fires an event you can listen for:</p>
-          <pre class="code">document.addEventListener("beergate:unlock", (e) =&gt; {
+          <p>When someone passes, Beer Password fires an event you can listen for:</p>
+          <pre class="code">document.addEventListener("beerpassword:unlock", (e) =&gt; {
   console.log("Skulled in", e.detail.seconds, "seconds");
 });</pre>
-          <p style="margin-top: 12px">Run <code>BeerGate.reset()</code> to lock it again, or add <code>data-auto="false"</code> to the tag and call <code>BeerGate.open()</code> to open it on demand.</p>
+          <p style="margin-top: 12px">Run <code>BeerPassword.reset()</code> to lock it again, or add <code>data-auto="false"</code> to the tag and call <code>BeerPassword.open()</code> to open it on demand.</p>
         </div>
       </details>
     </section>
 
     <section class="tall">
       <h2>Can't link to outside code?</h2>
-      <p>Some site builders block code loaded from another website. This version has all of Beer Gate inside it, so nothing is loaded from here. It's long, so use the copy button. You won't get automatic updates with this one.</p>
+      <p>Some site builders block code loaded from another website. This version has all of Beer Password inside it, so nothing is loaded from here. It's long, so use the copy button. You won't get automatic updates with this one.</p>
       <div class="snippet">
         <pre class="code" id="fullCode">Loading…</pre>
         <button class="btn small copy" data-copy="fullCode">Copy</button>
       </div>
       <div class="row">
-        <a class="btn ghost small" href="beer-gate.js" download>Download beer-gate.js</a>
+        <a class="btn ghost small" href="beer-password.js" download>Download beer-password.js</a>
       </div>
     </section>
 
@@ -191,18 +191,18 @@
       <div class="card" style="color: var(--text-soft); font-size: 16px">
         <p style="margin: 0 0 10px">It's a party trick, not real security. Anyone handy with browser dev tools can get around it, so don't use it to protect anything that matters.</p>
         <p style="margin: 0 0 10px">The camera feed is checked inside each visitor's browser. Nothing is recorded or uploaded.</p>
-        <p style="margin: 0">Visitors need a webcam and a modern browser. Beer Gate is meant for adults of legal drinking age.</p>
+        <p style="margin: 0">Visitors need a webcam and a modern browser. Beer Password is meant for adults of legal drinking age.</p>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap narrow muted">Beer Gate runs entirely in your browser. Video never leaves your device.</div>
+    <div class="wrap narrow muted">Beer Password runs entirely in your browser. Video never leaves your device.</div>
   </footer>
 
   <script>
     const $ = (id) => document.getElementById(id);
-    const scriptUrl = new URL("beer-gate.js", location.href).href;
+    const scriptUrl = new URL("beer-password.js", location.href).href;
     const attr = (s) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     let fullSource = null;
 
@@ -230,7 +230,7 @@
     ["title", "secs", "remember"].forEach((id) => $(id).addEventListener("input", render));
     render();
 
-    fetch("beer-gate.js")
+    fetch("beer-password.js")
       .then((r) => { if (!r.ok) throw new Error(r.status); return r.text(); })
       .then((src) => { fullSource = src.trimEnd(); render(); })
       .catch(() => { $("fullCode").textContent = "Couldn't load the code here. Use the download button below instead."; });

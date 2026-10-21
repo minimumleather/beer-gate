@@ -1,22 +1,22 @@
 /*
- * Beer Gate: covers the page until the visitor skulls a drink live on webcam.
+ * Beer Password: covers the page until the visitor skulls a drink live on webcam.
  *
  * Add to any page with a script tag whose src is this file, or paste this whole file
- * inside a script tag. Get the code at https://minimumleather.github.io/beer-gate/code.html
+ * inside a script tag. Get the code at https://minimumleather.github.io/beer-password/code.html
  *
  * Optional settings (attributes on the script tag):
  *   data-max-seconds="25"   length of the chant; the drink must be upside down over
  *                           your head before it hits 1
  *   data-remember="true"    stay unlocked for the rest of the browser session
  *   data-title="..."        heading on the gate screen
- *   data-auto="false"       don't cover the page on load; call BeerGate.open() instead
+ *   data-auto="false"       don't cover the page on load; call BeerPassword.open() instead
  *                           (the gate then gets a close button, handy for demos)
  *   data-link-text="..."    small link in the bottom right corner of the gate, with
  *   data-link-href="..."    where it goes
  *
- * When unlocked it fires a "beergate:unlock" event on document
- * (event.detail.seconds is the skull time) and calls window.BeerGate.onUnlock if set.
- * BeerGate.reset() locks it again.
+ * When unlocked it fires a "beerpassword:unlock" event on document
+ * (event.detail.seconds is the skull time) and calls window.BeerPassword.onUnlock if set.
+ * BeerPassword.reset() locks it again.
  *
  * Everything runs in the visitor's browser: video is never recorded or uploaded.
  * This is a novelty gate, not real security: anyone with dev tools can remove it.
@@ -37,7 +37,7 @@
   // Chant and drumroll are timed for a 25 second run and stretched to fit data-max-seconds.
   const K = CFG.maxSeconds / 25;
 
-  const KEY = "beergate-unlocked";
+  const KEY = "beerpassword-unlocked";
   const MP = "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14";
   const MODELS = "https://storage.googleapis.com/mediapipe-models";
   const FACE_MODEL = `${MODELS}/face_landmarker/face_landmarker/float16/1/face_landmarker.task`;
@@ -72,8 +72,8 @@
     return i;
   };
 
-  window.BeerGate = window.BeerGate || {};
-  window.BeerGate.reset = () => {
+  window.BeerPassword = window.BeerPassword || {};
+  window.BeerPassword.reset = () => {
     try { sessionStorage.removeItem(KEY); } catch {}
     location.reload();
   };
@@ -639,8 +639,8 @@
     function unlock() {
       try { if (CFG.remember) sessionStorage.setItem(KEY, "1"); } catch {}
       close();
-      document.dispatchEvent(new CustomEvent("beergate:unlock", { detail: { seconds: result } }));
-      if (typeof window.BeerGate.onUnlock === "function") window.BeerGate.onUnlock(result);
+      document.dispatchEvent(new CustomEvent("beerpassword:unlock", { detail: { seconds: result } }));
+      if (typeof window.BeerPassword.onUnlock === "function") window.BeerPassword.onUnlock(result);
     }
 
     btn.addEventListener("click", () => {
@@ -655,7 +655,7 @@
     }
   }
 
-  window.BeerGate.open = mount;
+  window.BeerPassword.open = mount;
   let unlocked = false;
   try { unlocked = CFG.remember && sessionStorage.getItem(KEY) === "1"; } catch {}
   if (CFG.auto && !unlocked) mount();
