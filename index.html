@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beer Gate: skull to enter</title>
+  <meta name="description" content="Lock any webpage until the visitor skulls a beer live on their webcam. Free to add to any website.">
+  <meta property="og:title" content="Beer Gate: skull to enter">
+  <meta property="og:description" content="Lock any webpage until the visitor skulls a beer live on their webcam.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍺</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+  <style>
+    .hero { display: grid; gap: 40px; align-items: center; padding: 72px 0 56px; }
+    @media (min-width: 880px) { .hero { grid-template-columns: 1.15fr 1fr; padding: 110px 0 80px; } }
+    .hero h1 span { color: var(--gold); }
+    .hero .lede { margin: 22px 0 30px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .needs { margin-top: 16px; }
+
+    .player { padding: 26px 26px 10px; }
+    .player-top { display: flex; align-items: center; gap: 10px; color: var(--text-faint); font-size: 13px; margin-bottom: 18px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+    .lyric-window { height: 190px; overflow: hidden; -webkit-mask-image: linear-gradient(#000 60%, transparent); mask-image: linear-gradient(#000 60%, transparent); }
+    .lyric-track { transition: transform 0.45s ease; }
+    .lyric { font: 800 28px/1.2 var(--display); padding: 7px 0; opacity: 0; transition: opacity 0.45s, color 0.45s; }
+    .lyric.cur { opacity: 1; color: var(--gold); }
+    .lyric.n1 { opacity: 0.45; }
+    .lyric.n2 { opacity: 0.18; }
+
+    .result { display: none; margin-top: 18px; padding: 14px 18px; border-radius: 12px; border: 1px solid var(--green); color: var(--green); font-weight: 600; }
+    .result.on { display: block; }
+
+    section { padding: 56px 0; }
+    .steps { display: grid; gap: 16px; margin-top: 32px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); counter-reset: step; }
+    .step { counter-increment: step; }
+    .step::before { content: counter(step); display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%;
+      background: var(--gold); color: var(--on-gold); font: 800 18px/1 var(--display); margin-bottom: 16px; }
+    .step p { color: var(--text-soft); margin: 8px 0 0; font-size: 16px; }
+
+    .facts { display: grid; gap: 16px; margin-top: 32px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .facts p { color: var(--text-soft); margin: 8px 0 0; font-size: 16px; }
+    .platforms { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .platforms span { border: 1px solid var(--line-strong); border-radius: 999px; padding: 3px 12px; font-size: 13px; color: var(--text-soft); }
+
+    .cta { text-align: center; padding: 72px 16px; margin-top: 24px; border-radius: 24px;
+      background: radial-gradient(ellipse at 50% 120%, #4a3510, var(--bg-raised) 70%); border: 1px solid var(--line-strong); }
+    .cta p { color: var(--text-soft); margin: 14px auto 30px; max-width: 30em; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">Beer Gate</p>
+        <h1>Skull to <span>enter.</span></h1>
+        <p class="lede">A password your mates can't pass on. Beer Gate locks any webpage until the visitor skulls a beer, live on their webcam, before the chant runs out.</p>
+        <div class="actions">
+          <button class="btn big" id="try">Try it now</button>
+          <a class="btn ghost" href="code.html">Get the code</a>
+        </div>
+        <p class="muted needs">You'll need a webcam, your sound on and a drink. 18+ only.</p>
+        <div class="result" id="result" role="status"></div>
+      </div>
+
+      <div class="card player" aria-hidden="true">
+        <div class="player-top"><span class="dot"></span> Now chanting</div>
+        <div class="lyric-window"><div class="lyric-track" id="track"></div></div>
+      </div>
+    </div>
+
+    <section>
+      <h2>How it works</h2>
+      <div class="steps">
+        <div class="card step"><h3>Pull a face</h3><p>Two random face checks prove you're live, not a video on loop.</p></div>
+        <div class="card step"><h3>Show your drink</h3><p>Hold it out so the camera can lock on to the one in your hand.</p></div>
+        <div class="card step"><h3>Skull it</h3><p>3, 2, 1, then the chant and the drumroll start. Get it down.</p></div>
+        <div class="card step"><h3>Flip it</h3><p>Turn the empty upside down over your head before the count hits 1.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Good to know</h2>
+      <div class="facts">
+        <div class="card"><h3>Nothing leaves your device</h3><p>The camera feed is checked inside your browser. No video is recorded, saved or uploaded anywhere.</p></div>
+        <div class="card">
+          <h3>Works on most websites</h3>
+          <p>One line of code. There are step-by-step instructions for:</p>
+          <div class="platforms"><span>Wix</span><span>Squarespace</span><span>WordPress</span><span>Shopify</span><span>Webflow</span><span>AI-built sites</span><span>Hand-coded</span></div>
+        </div>
+        <div class="card"><h3>It's a party trick</h3><p>Anyone handy with browser dev tools can get around it. Use it for a laugh, not to protect anything that matters.</p></div>
+        <div class="card"><h3>Drink responsibly</h3><p>For adults of legal drinking age. Water works fine for the demo, and no one has to know.</p></div>
+      </div>
+    </section>
+
+    <div class="cta">
+      <h2>Want it on your site?</h2>
+      <p>Copy one line into your website and every visitor has to earn their way in. Free, and no account needed.</p>
+      <a class="btn big" href="code.html">Use this code</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap muted">Beer Gate runs entirely in your browser. Video never leaves your device.</div>
+  </footer>
+
+  <script src="beer-gate.js" data-auto="false" data-remember="false"></script>
+  <script>
+    // Spotify-style chant preview: current line in gold, the next two fading out below.
+    const LINES = ["3", "2", "1", "We like to drink with this guy", "'Cause this guy is our mate",
+      "And when we drink with this guy", "They get it down in...", "8", "7", "6", "5", "4", "3", "2", "1"];
+    const track = document.getElementById("track");
+    const els = LINES.map((text) => {
+      const el = document.createElement("div");
+      el.className = "lyric";
+      el.textContent = text;
+      track.appendChild(el);
+      return el;
+    });
+    let i = 0;
+    function show() {
+      els.forEach((el, j) => { el.className = "lyric" + (j === i ? " cur" : j === i + 1 ? " n1" : j === i + 2 ? " n2" : ""); });
+      track.style.transform = `translateY(${-els[i].offsetTop}px)`;
+    }
+    show();
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setInterval(() => { i = (i + 1) % els.length; show(); }, 1400);
+    }
+
+    document.getElementById("try").addEventListener("click", () => BeerGate.open());
+    document.addEventListener("beergate:unlock", (e) => {
+      const r = document.getElementById("result");
+      r.textContent = `You're in. Skulled in ${e.detail.seconds.toFixed(1)} seconds. Legend.`;
+      r.classList.add("on");
+      document.getElementById("try").textContent = "Go again";
+    });
+  </script>
+</body>
+</html>
