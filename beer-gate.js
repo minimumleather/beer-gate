@@ -11,7 +11,7 @@
  *   data-title="..."        heading on the gate screen
  *   data-auto="false"       don't cover the page on load; call BeerGate.open() instead
  *                           (the gate then gets a close button, handy for demos)
- *   data-link-text="..."    small link under the gate's fine print, with
+ *   data-link-text="..."    small link in the bottom right corner of the gate, with
  *   data-link-href="..."    where it goes
  *
  * When unlocked it fires a "beergate:unlock" event on document
@@ -261,7 +261,7 @@
         button:hover { background: #ffd770; }
         button[hidden] { display: none; }
         .fine { margin-top: 16px; font-size: 12px; color: #a8977a; }
-        .link { display: inline-block; margin-top: 10px; font-size: 13px; color: #ffc94a; }
+        .link { position: fixed; right: 16px; bottom: 12px; font-size: 13px; color: #ffc94a; }
         .link:hover { color: #ffd770; }
         .close { position: fixed; top: 12px; right: 12px; padding: 8px 16px; font-size: 14px;
           background: transparent; color: #e8d9b8; border: 1px solid #5a4214; }
