@@ -4,240 +4,57 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Beer Password: get the code</title>
-  <meta name="description" content="Add Beer Password to your website: one line of code, with steps for Wix, Squarespace, WordPress, Shopify, Webflow and AI-built sites.">
+  <meta name="description" content="Add Beer Password to your website with one line of code.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍺</text></svg>">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="site.css">
   <style>
-    .back { display: inline-block; margin: 28px 0 0; text-decoration: none; font-size: 15px; }
-    header { padding: 40px 0 8px; }
-    header .lede { margin: 18px 0 0; }
-    section { padding: 36px 0 0; }
-    section > h2 { font-size: clamp(24px, 3.6vw, 30px); margin-bottom: 8px; }
-    section > p { color: var(--text-soft); margin: 8px 0 16px; }
-
-    .options { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-    label { display: block; font-weight: 600; font-size: 15px; margin-bottom: 8px; }
-    input[type="text"], input[type="number"] {
-      width: 100%; background: var(--bg-inset); color: var(--text); border: 1px solid var(--line-strong);
-      border-radius: 10px; padding: 11px 12px; font: 16px var(--body);
-    }
-    input:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
-    .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; color: var(--text-soft); }
-    .check input { width: 20px; height: 20px; accent-color: var(--gold); margin: 2px 0 0; flex: none; }
-    .hint { color: var(--text-faint); font-size: 13px; margin: 6px 0 0; }
-
-    .snippet { position: relative; }
-    .snippet .copy { position: absolute; top: 10px; right: 10px; }
-    .snippet pre { padding-right: 96px; }
-    .tall pre { max-height: 320px; }
-    .row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
-
-    details { border: 1px solid var(--line); border-radius: 14px; background: var(--bg-raised); margin-bottom: 10px; }
-    summary { cursor: pointer; padding: 16px 20px; font: 700 18px/1.3 var(--display); list-style: none; display: flex; justify-content: space-between; gap: 12px; }
-    summary::-webkit-details-marker { display: none; }
-    summary::after { content: "+"; color: var(--gold); font-size: 22px; line-height: 1; }
-    details[open] summary::after { content: "–"; }
-    .body { padding: 0 20px 18px; color: var(--text-soft); font-size: 16px; }
-    .body ol { margin: 0 0 12px; padding-left: 22px; }
-    .body li { margin: 6px 0; }
-    .body p { margin: 0 0 12px; }
-    .note { border-left: 3px solid var(--gold); padding: 2px 0 2px 12px; color: var(--text-soft); font-size: 15px; }
-    b { color: var(--text); }
+    body { font-family: system-ui, sans-serif; max-width: 640px; margin: 60px auto; padding: 0 16px; line-height: 1.5; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+    textarea { width: 100%; font-family: monospace; }
   </style>
 </head>
 <body>
-  <main class="wrap narrow">
-    <a class="back" href="./">← Back to Beer Password</a>
+  <h1>Add Beer Password to your site</h1>
 
-    <header>
-      <p class="eyebrow">Get the code</p>
-      <h1 style="font-size: clamp(38px, 7vw, 60px)">Add Beer Password to your site</h1>
-      <p class="lede">It's one line of code. Put it on any page you want locked, and visitors have to skull a beer to get in.</p>
-    </header>
+  <p>Paste this line into the &lt;head&gt; of any page you want locked:</p>
+  <pre id="oneLine"></pre>
+  <button data-copy="oneLine">Copy</button>
 
-    <section>
-      <h2>1. Set it up</h2>
-      <p>Change these if you like. The code below updates as you type.</p>
-      <div class="card options">
-        <div>
-          <label for="title">Heading on the password screen</label>
-          <input type="text" id="title" value="Skull a beer to enter" maxlength="80">
-        </div>
-        <div>
-          <label for="secs">Time to finish (seconds)</label>
-          <input type="number" id="secs" value="25" min="10" max="60" step="1">
-          <p class="hint">The chant stretches to fit. 25 is the classic.</p>
-        </div>
-        <div>
-          <label class="check"><input type="checkbox" id="remember" checked> Stay unlocked after passing, until the browser is closed</label>
-        </div>
-      </div>
-    </section>
+  <h2>Where to paste it</h2>
+  <p>Wix: Settings, Custom Code, Add Custom Code. Paste it, pick your pages and choose Head. Needs a Premium plan.</p>
+  <p>Squarespace: Code Injection, then the Header box. Needs a paid plan.</p>
+  <p>WordPress: install the free WPCode plugin, then Code Snippets, Header &amp; Footer, Header.</p>
+  <p>Shopify: Online Store, Themes, Edit code, theme.liquid. Paste it just above &lt;/head&gt;.</p>
+  <p>Webflow: Site settings, Custom code, Head code. Needs a paid site plan.</p>
+  <p>Made with AI: tell it "Add this script tag to the &lt;head&gt; of every page that should be locked, exactly as written", then paste the line.</p>
+  <p>Coded it yourself: paste it in the &lt;head&gt;. Your site needs to be on https for the camera to work.</p>
 
-    <section>
-      <h2>2. Copy your code</h2>
-      <p>This loads Beer Password from this site, so you get fixes and improvements automatically.</p>
-      <div class="snippet">
-        <pre class="code" id="oneLine"></pre>
-        <button class="btn small copy" data-copy="oneLine">Copy</button>
-      </div>
-    </section>
+  <h2>Options</h2>
+  <p>Add any of these inside the script tag, before the &gt;:</p>
+  <p>data-title="Your heading" changes the heading.<br>
+     data-max-seconds="30" changes the time to finish (25 by default).<br>
+     data-remember="false" makes people skull every time, instead of staying unlocked until they close the browser.</p>
 
-    <section>
-      <h2>3. Paste it into your website</h2>
-      <p>Pick how your site was made. Put the code only on the pages you want locked, or on every page to lock the whole site.</p>
+  <h2>If your site builder blocks outside code</h2>
+  <p>Copy the whole thing instead and paste it in the same place, or <a href="beer-password.js" download>download beer-password.js</a>.</p>
+  <textarea id="fullCode" rows="8" readonly>Loading…</textarea>
+  <button data-copy="fullCode">Copy</button>
 
-      <details>
-        <summary>Wix</summary>
-        <div class="body">
-          <ol>
-            <li>In your Wix dashboard, go to <b>Settings</b>, then scroll to <b>Advanced</b> and open <b>Custom Code</b>.</li>
-            <li>Click <b>+ Add Custom Code</b> and paste your code into the box.</li>
-            <li>Under <b>Add Code to Pages</b>, choose <b>All pages</b> or pick the pages to lock.</li>
-            <li>Under <b>Place Code in</b>, choose <b>Head</b>, then click <b>Apply</b>.</li>
-          </ol>
-          <p class="note">Wix only allows custom code on Premium plans with a connected domain. Don't use the "Embed HTML" element: it runs in a small box that can't cover the page or use the camera.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Squarespace</summary>
-        <div class="body">
-          <ol>
-            <li>Open the <b>Code Injection</b> panel. If you can't find it, search "Code Injection" in the Squarespace menu.</li>
-            <li>Paste your code into the <b>Header</b> box and click <b>Save</b>. This locks every page.</li>
-            <li>To lock just one page instead, open that page's <b>Settings</b>, go to <b>Advanced</b>, and paste the code into <b>Page Header Code Injection</b>.</li>
-          </ol>
-          <p class="note">Code Injection is only on paid Squarespace plans that include custom code.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>WordPress</summary>
-        <div class="body">
-          <ol>
-            <li>Install the free <b>WPCode</b> plugin (Plugins, Add New, search "WPCode").</li>
-            <li>Go to <b>Code Snippets</b>, then <b>Header &amp; Footer</b>.</li>
-            <li>Paste your code into the <b>Header</b> box and click <b>Save Changes</b>.</li>
-          </ol>
-          <p class="note">On WordPress.com (not self-hosted), plugins need a Business plan or higher.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Shopify</summary>
-        <div class="body">
-          <ol>
-            <li>Go to <b>Online Store</b>, then <b>Themes</b>. Next to your theme, click <b>⋯</b> then <b>Edit code</b>.</li>
-            <li>Open <b>layout/theme.liquid</b>.</li>
-            <li>Paste your code on the line just above <code>&lt;/head&gt;</code>, then click <b>Save</b>.</li>
-          </ol>
-        </div>
-      </details>
-
-      <details>
-        <summary>Webflow</summary>
-        <div class="body">
-          <ol>
-            <li>Open <b>Site settings</b>, then <b>Custom code</b>.</li>
-            <li>Paste your code into <b>Head code</b>, save, and publish your site.</li>
-            <li>To lock one page instead, open that page's settings and paste it under <b>Custom code</b>, <b>Inside &lt;head&gt; tag</b>.</li>
-          </ol>
-          <p class="note">Webflow needs a paid site plan for custom code.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Made with AI (Lovable, Bolt, v0, ChatGPT, Claude and others)</summary>
-        <div class="body">
-          <p>Copy this message and send it to the AI tool that built your site. It already has your code in it.</p>
-          <div class="snippet">
-            <pre class="code" id="aiPrompt"></pre>
-            <button class="btn small copy" data-copy="aiPrompt">Copy</button>
-          </div>
-        </div>
-      </details>
-
-      <details>
-        <summary>Coded it yourself</summary>
-        <div class="body">
-          <p>Paste the code inside the <code>&lt;head&gt;</code> of each page you want locked, then upload as usual. Your site needs to be on <code>https://</code>, or browsers won't allow the camera.</p>
-          <p>When someone passes, Beer Password fires an event you can listen for:</p>
-          <pre class="code">document.addEventListener("beerpassword:unlock", (e) =&gt; {
-  console.log("Skulled in", e.detail.seconds, "seconds");
-});</pre>
-          <p style="margin-top: 12px">Run <code>BeerPassword.reset()</code> to lock it again, or add <code>data-auto="false"</code> to the tag and call <code>BeerPassword.open()</code> to open it on demand.</p>
-        </div>
-      </details>
-    </section>
-
-    <section class="tall">
-      <h2>Can't link to outside code?</h2>
-      <p>Some site builders block code loaded from another website. This version has all of Beer Password inside it, so nothing is loaded from here. It's long, so use the copy button. You won't get automatic updates with this one.</p>
-      <div class="snippet">
-        <pre class="code" id="fullCode">Loading…</pre>
-        <button class="btn small copy" data-copy="fullCode">Copy</button>
-      </div>
-      <div class="row">
-        <a class="btn ghost small" href="beer-password.js" download>Download beer-password.js</a>
-      </div>
-    </section>
-
-    <section>
-      <h2>Before you go live</h2>
-      <div class="card" style="color: var(--text-soft); font-size: 16px">
-        <p style="margin: 0 0 10px">It's a party trick, not real security. Anyone handy with browser dev tools can get around it, so don't use it to protect anything that matters.</p>
-        <p style="margin: 0 0 10px">The camera feed is checked inside each visitor's browser. Nothing is recorded or uploaded.</p>
-        <p style="margin: 0">Visitors need a webcam and a modern browser. Beer Password is meant for adults of legal drinking age.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap narrow muted">Beer Password runs entirely in your browser. Video never leaves your device.</div>
-  </footer>
+  <p>It's a party trick, not real security. Video never leaves the visitor's device. 18+ only.</p>
+  <p><a href="./">Back to Beer Password</a></p>
 
   <script>
     const $ = (id) => document.getElementById(id);
-    const scriptUrl = new URL("beer-password.js", location.href).href;
-    const attr = (s) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    let fullSource = null;
-
-    // Only settings that differ from the defaults go on the tag, to keep it short.
-    function attrs() {
-      const title = $("title").value.trim();
-      const secs = Math.round(Number($("secs").value));
-      let a = "";
-      if (title && title !== "Skull a beer to enter") a += ` data-title="${attr(title)}"`;
-      if (secs >= 10 && secs <= 60 && secs !== 25) a += ` data-max-seconds="${secs}"`;
-      if (!$("remember").checked) a += ` data-remember="false"`;
-      return a;
-    }
-
-    function render() {
-      const a = attrs();
-      const line = `<script src="${scriptUrl}"${a}><\/script>`;
-      $("oneLine").textContent = line;
-      $("aiPrompt").textContent =
-        "Add this script tag inside the <head> of every page on my site that should be locked. " +
-        "Add it exactly as written, as a plain script tag. Don't rewrite it, bundle it, or turn it into a component:\n\n" + line;
-      if (fullSource !== null) $("fullCode").textContent = `<script${a}>\n${fullSource}\n<\/script>`;
-    }
-
-    ["title", "secs", "remember"].forEach((id) => $(id).addEventListener("input", render));
-    render();
+    $("oneLine").textContent = `<script src="${new URL("beer-password.js", location.href).href}"><\/script>`;
 
     fetch("beer-password.js")
       .then((r) => { if (!r.ok) throw new Error(r.status); return r.text(); })
-      .then((src) => { fullSource = src.trimEnd(); render(); })
-      .catch(() => { $("fullCode").textContent = "Couldn't load the code here. Use the download button below instead."; });
+      .then((src) => { $("fullCode").value = `<script>\n${src.trimEnd()}\n<\/script>`; })
+      .catch(() => { $("fullCode").value = "Couldn't load the code here. Use the download link above instead."; });
 
     document.querySelectorAll("[data-copy]").forEach((btn) => {
       btn.addEventListener("click", async () => {
-        const text = $(btn.dataset.copy).textContent;
+        const el = $(btn.dataset.copy);
+        const text = el.value ?? el.textContent;
         try {
           await navigator.clipboard.writeText(text);
         } catch {
