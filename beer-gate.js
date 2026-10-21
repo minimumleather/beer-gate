@@ -11,6 +11,8 @@
  *   data-title="..."        heading on the gate screen
  *   data-auto="false"       don't cover the page on load; call BeerGate.open() instead
  *                           (the gate then gets a close button, handy for demos)
+ *   data-link-text="..."    small link under the gate's fine print, with
+ *   data-link-href="..."    where it goes
  *
  * When unlocked it fires a "beergate:unlock" event on document
  * (event.detail.seconds is the skull time) and calls window.BeerGate.onUnlock if set.
@@ -29,6 +31,8 @@
     remember: d.remember !== "false",
     title: d.title || "Skull a beer to enter",
     auto: d.auto !== "false",
+    linkText: d.linkText || "",
+    linkHref: d.linkHref || "",
   };
   // Chant and drumroll are timed for a 25 second run and stretched to fit data-max-seconds.
   const K = CFG.maxSeconds / 25;
@@ -257,6 +261,8 @@
         button:hover { background: #ffd770; }
         button[hidden] { display: none; }
         .fine { margin-top: 16px; font-size: 12px; color: #a8977a; }
+        .link { display: inline-block; margin-top: 10px; font-size: 13px; color: #ffc94a; }
+        .link:hover { color: #ffd770; }
         .close { position: fixed; top: 12px; right: 12px; padding: 8px 16px; font-size: 14px;
           background: transparent; color: #e8d9b8; border: 1px solid #5a4214; }
         .close:hover { background: rgba(255, 201, 74, 0.13); border-color: #ffc94a; }
@@ -292,6 +298,13 @@
       </div></div>`;
     const $ = (s) => root.querySelector(s);
     $("h1").textContent = CFG.title;
+    if (CFG.linkText && CFG.linkHref && !/^\s*javascript:/i.test(CFG.linkHref)) {
+      const a = document.createElement("a");
+      a.className = "link";
+      a.href = CFG.linkHref;
+      a.textContent = CFG.linkText;
+      $(".card").appendChild(a);
+    }
     const card = $(".card"), video = $("video"), canvas = $("canvas"), ctx = canvas.getContext("2d");
     const msgEl = $(".msg"), subEl = $(".sub"), btn = $(".go"), lyricsEl = $(".lyrics"), trackEl = $(".track");
 

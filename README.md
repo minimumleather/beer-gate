@@ -24,6 +24,7 @@ Add any of these to the script tag:
 | `data-max-seconds` | `25` | Time to finish; the chant stretches to fit |
 | `data-remember` | `true` | Stay unlocked until the browser is closed |
 | `data-auto` | `true` | Set to `false` to open it yourself with `BeerGate.open()` |
+| `data-link-text`, `data-link-href` | none | A small link under the gate's fine print |
 
 When someone passes, a `beergate:unlock` event fires on `document` with the skull time in `event.detail.seconds`.
 
